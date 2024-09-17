@@ -90,7 +90,6 @@ export default function CourseInformationForm() {
       if (isFormUpdated()) {
         const currentValues = getValues()
         const formData = new FormData()
-        // console.log(data)
         formData.append("courseId", course._id)
         if (currentValues.courseTitle !== course.courseName) {
           formData.append("courseName", data.courseTitle)
@@ -123,8 +122,10 @@ export default function CourseInformationForm() {
           formData.append("thumbnailImage", data.courseImage)
         }
         // console.log("Edit Form data: ", formData)
+      
         setLoading(true)
         const result = await editCourseDetails(formData, token)
+        //console.log(result);
         setLoading(false)
         if (result) {
           dispatch(setStep(2))
@@ -146,6 +147,9 @@ export default function CourseInformationForm() {
     formData.append("status", COURSE_STATUS.DRAFT)
     formData.append("instructions", JSON.stringify(data.courseRequirements))
     formData.append("thumbnailImage", data.courseImage)
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
     setLoading(true)
     const result = await addCourseDetails(formData, token)
     if (result) {

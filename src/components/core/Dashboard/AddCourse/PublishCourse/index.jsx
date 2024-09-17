@@ -45,12 +45,17 @@ export default function PublishCourse() {
       return
     }
     const formData = new FormData()
-    formData.append("courseId", course._id)
+    
+    formData.append("courseId", course._id);
     const courseStatus = getValues("public")
       ? COURSE_STATUS.PUBLISHED
       : COURSE_STATUS.DRAFT
+     // console.log(course._id,courseStatus);
     formData.append("status", courseStatus)
     setLoading(true)
+    // formData.forEach((value, key) => {
+    //   console.log(key, value);
+    // });
     const result = await editCourseDetails(formData, token)
     if (result) {
       goToCourses()

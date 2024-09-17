@@ -7,24 +7,28 @@ import { Link } from 'react-router-dom';
 
 export default function Instructor() {
     const { token } = useSelector((state) => state.auth)
+    //console.log(token);
     const { user } = useSelector((state) => state.profile)
     const [loading, setLoading] = useState(false)
     const [instructorData, setInstructorData] = useState(null)
     const [courses, setCourses] = useState([])
   
-    useEffect(() => {
-      ;(async () => {
+    useEffect(() => {(async () => {
+      console.log('helloooooooo');
         setLoading(true)
         const instructorApiData = await getInstructorData(token)
+        console.log('kya hi likhu',instructorApiData);
         const result = await fetchInstructorCourses(token)
-        console.log(instructorApiData)
+        console.log('kya hi likhu');
+        // *************************************************************************** yaha tha mai ****************************************************************************
+        //console.log(instructorApiData)
         if (instructorApiData.length) setInstructorData(instructorApiData)
         if (result) {
           setCourses(result)
         }
         setLoading(false)
       })()
-    }, [])
+    }, [token])
   
     const totalAmount = instructorData?.reduce(
       (acc, curr) => acc + curr.totalAmountGenerated,
@@ -109,7 +113,7 @@ export default function Instructor() {
                       </p>
                       <div className="mt-1 flex items-center space-x-2">
                         <p className="text-xs font-medium text-richblack-300">
-                          {course.studentsEnroled.length} students
+                          {course.studentsEnrolled.length} students
                         </p>
                         <p className="text-xs font-medium text-richblack-300">
                           |
