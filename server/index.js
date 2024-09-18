@@ -25,7 +25,7 @@ app.use(
 	cors({
 		//frontend
 		//jo bhi requsest frontend sey aari hai usey hamey entertain karna hai
-		origin:"https://padhaicrow.vercel.app",
+		origin:"*",
 		credentials:true,
 	})
 )
