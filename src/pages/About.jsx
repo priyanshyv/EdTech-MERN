@@ -24,7 +24,7 @@ const About = () => {
             <p className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
               Studynotion is at the forefront of driving innovation in online
               education. We're passionate about creating a brighter future by
-              offering cutting-edge courses, leveraging emerging technologies,
+              offering cutting-edge courses, leveraging technologies,
               and nurturing a vibrant learning community.
             </p>
           </header>
