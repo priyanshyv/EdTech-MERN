@@ -1,4 +1,5 @@
 // Icons Import
+import { useState } from "react"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
@@ -16,10 +17,24 @@ import LearningLanguageSection from "../components/core/HomePage/LearningLanguag
 import TimelineSection from "../components/core/HomePage/TimelineSection"
 
 function Home() {
+  // State to manage dark or light mode
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  // Toggle the theme
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     <div>
       {/* Section 1 */}
+      <div className={isDarkMode ? "bg-richblack-900 text-white" : "bg-white text-black"}>
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
+      <button
+          onClick={toggleTheme}
+          className="absolute top-5 right-5 rounded-full bg-blue-500 p-3 text-white hover:bg-blue-700 transition"
+        >
+          {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        </button>
         {/* Become a Instructor Button */}
         <Link to={"/signup"}>
           <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
@@ -31,7 +46,7 @@ function Home() {
         </Link>
 
         {/* Heading */}
-        <div className="text-center text-4xl font-semibold">
+        <div className={`text-center text-4xl font-semibold ${isDarkMode?"bg-richblack-800 text-richblack-200" : "bg-gray-300 text-black"}`}>
           Empower Your Future with
           <HighlightText text={"Coding Skills"} />
         </div>
@@ -128,7 +143,7 @@ function Home() {
         {/* Explore Section */}
         <ExploreMore />
       </div>
-
+      </div>
       {/* Section 2 */}
       <div className="bg-pure-greys-5 text-richblack-700">
         <div className="homepage_bg h-[320px]">

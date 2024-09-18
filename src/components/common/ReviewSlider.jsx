@@ -20,7 +20,7 @@ import { ratingsEndpoints } from "../../services/apis"
 function ReviewSlider() {
   const [reviews, setReviews] = useState([])
   const truncateWords = 15
-
+  const [slides,setSlides]=useState(3);
   useEffect(() => {
     ;(async () => {
       const { data } = await apiConnector(
@@ -33,13 +33,25 @@ function ReviewSlider() {
     })()
   }, [])
 
+  useEffect(()=>{
+    if(window.innerHeight<=768){
+      setSlides(1);
+    }
+    else if(window.innerWidth<=1024 && window.innerWidth>768){
+      setSlides(2);
+    }
+    else if(window.innerWidth>1024){
+      setSlides(3);
+    }
+  },[window.innerWidth,window.innerHeight])
+  
   // console.log(reviews)
 
   return (
     <div className="text-white">
-      <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent">
+      <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent ">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={slides}
           spaceBetween={25}
           loop={true}
           freeMode={true}
@@ -53,7 +65,7 @@ function ReviewSlider() {
           {reviews.map((review, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
+                <div className="flex items-center flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25 h-fit rounded-md ">
                   <div className="flex items-center gap-4">
                     <img
                       src={

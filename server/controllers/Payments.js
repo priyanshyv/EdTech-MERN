@@ -12,6 +12,7 @@ const CourseProgress = require("../models/CourseProgress")
 
 // Capture the payment and initiate the Razorpay order
 exports.capturePayment = async (req, res) => {
+  //console.log('these are my courses',courses);
   const { courses } = req.body
   const userId = req.user.id
   if (courses.length === 0) {
