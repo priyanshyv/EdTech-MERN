@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_BASE || "https://padhaicrow.onrender.com/api/v1"
+const BASE_URL = process.env.REACT_BASE
 
 // AUTH ENDPOINTS
 export const endpoints = {
