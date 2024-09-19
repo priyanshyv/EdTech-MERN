@@ -102,9 +102,9 @@ function App() {
     <Route 
         path="/code-runner" 
         element={
-          <OpenRoute>
+          
               <Compilerapp />
-        </OpenRoute>
+      
       } 
         />
     <Route path="/contact" element={<Contact />} />

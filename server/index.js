@@ -27,6 +27,7 @@ app.use(
 		//jo bhi requsest frontend sey aari hai usey hamey entertain karna hai
 		origin:"https://padhaicrow.vercel.app",
 		//http://localhost:3000
+		//"https://padhaicrow.vercel.app"
 		credentials:true,
 	})
 )
