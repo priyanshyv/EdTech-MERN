@@ -28,6 +28,7 @@ import CourseDetails from "./pages/CourseDetails";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import CodeRunner from "./compiler/compiler"
 
 function App() {
 
@@ -96,6 +97,11 @@ function App() {
               <About />
             
           }
+        />
+        {/* Add the CodeRunner Route */}
+        <Route 
+        path="/code-runner" 
+        element={<CodeRunner />} 
         />
     <Route path="/contact" element={<Contact />} />
 
