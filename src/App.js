@@ -28,7 +28,7 @@ import CourseDetails from "./pages/CourseDetails";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
-import CodeRunner from "./compiler/compilerapp"
+import {Compilerapp} from "./compiler/Compilerapp"
 
 function App() {
 
@@ -103,7 +103,7 @@ function App() {
         path="/code-runner" 
         element={
           <OpenRoute>
-              <CodeRunner />
+              <Compilerapp />
         </OpenRoute>
       } 
         />
