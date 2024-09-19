@@ -2,7 +2,7 @@ import { Box ,Heading} from "@chakra-ui/react";
 import CodeEditor from "../compilercomponents/Codeeditor";
 import React from 'react'
 
-export const Compilerapp = () => {
+const Compilerapp = () => {
   return (
     <Box minH="100vh" bg="richblack-700" color="gray.500" px={6} py={8}>
       <Heading 
@@ -19,4 +19,7 @@ export const Compilerapp = () => {
     </Box>
   )
 }
+
+export default Compilerapp
+
 
